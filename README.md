@@ -3,10 +3,32 @@ Workaround how to run Java applets even without NPAPI support. One of our custom
 and as of september 2015 Google Chrome is opting out NPAPI support (no Java applet support) and other browsers are following
 this trend, we needed to replace it with very quick solution. 
 
+## Requirements
+
+- **valid** certificate for signing JNLP applications
+- Java webserver (JRE7+)
+- and of course JRE on client (JRE7+)
+
 ## Usage
+
+This project was implemented very quickly, in case you are interested in help with integration, give a message. Generally
+the integration consists of these steps:
 
 1. Include `AppletRaus.js` in your HTML page where applet was previously loaded
 2. Instantiate the `AppletRaus` object with
+```javascript
+var oAppletRaus = new AppletRaus({
+    aClientOptions: {
+        iDebugLevel: 4,
+        sAppletJnlpUrl: "/appletraus-boot/Applet.jnlp",
+        sAtmosphereEndpoint: "/appletraus-boot/appletraus"
+    }
+});
+```
+3. Include your applet JAR in client project. Set the `MainClass` attribute of the applets main class
+4. Compile with maven. Maven makes automatically JAR signing.
+5. Install **WAR** file in your Java/J2EE server (Tomcat, wildfly, WebSphere, ...)
+6. You are ready to go!
 
 ## How it works?
 
