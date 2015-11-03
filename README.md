@@ -3,6 +3,11 @@ Workaround how to run Java applets even without NPAPI support. One of our custom
 and as of september 2015 Google Chrome is opting out NPAPI support (no Java applet support) and other browsers are following
 this trend, we needed to replace it with very quick solution. 
 
+## Usage
+
+1. Include `AppletRaus.js` in your HTML page where applet was previously loaded
+2. Instantiate the `AppletRaus` object with
+
 ## How it works?
 
 * AppletRaus instantiated with JNLP client application which represents the applet container. 
@@ -30,7 +35,7 @@ classes is not the best way how to do legal workarounds.
 ### Why Chrome does not work instantly and I have to click on downloaded JNLP?
 Because Google decided to ignore this mime type completely. You have to click on the file so that application could start
 
-### Why applet container (client) is not in spring boot?
+### Why applet container (client) is not implemented in Spring boot?
 Spring boot does not support JNLP at all and possibly it will never be. The problem resides in a way that Boot is handling
 the source JAR in its class loader. JNLP provides network URL and not the absolute URL, as the file is actually not saved
 for the executed application, but executed on-the-fly.
