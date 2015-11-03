@@ -1,0 +1,10 @@
+
+server:
+  port: 8080
+
+logging.level: DEBUG
+project.version: @project.version@
+
+logging.level.com.mejmo: INFO
+logging.level.org.springframework: INFO
+

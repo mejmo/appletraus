@@ -1,0 +1,6 @@
+
+logging.level: DEBUG
+project.version: @project.version@
+
+logging.level.com.mejmo: DEBUG
+
