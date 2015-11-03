@@ -1,7 +1,6 @@
 # appletraus
 Workaround that allows to run Java applets even without NPAPI support. One of our customers is still using applets 
-and as of september 2015 Google Chrome opted out NPAPI support (no Java applet support) and other browsers are following
-this trend, that's why we needed to replace it with very quick solution. 
+and as of september 2015 Google Chrome opted out NPAPI support (no Java applet support) and other browsers are following this trend, that's why we needed to replace it with very quick solution. 
 
 *This project was implemented very quickly, in case you are interested in help with integration, feel free to give a message.* 
 
@@ -27,22 +26,22 @@ and synchronously between browser context and server
 
 1. Include `AppletRaus.js` in your HTML page where applet was previously loaded
 2. Instantiate the `AppletRaus` object with
-```javascript
-var oAppletRaus = new AppletRaus({
-    aClientOptions: {
-        iDebugLevel: 4,
-        sAppletJnlpUrl: "/appletraus-boot/Applet.jnlp",
-        sAtmosphereEndpoint: "/appletraus-boot/appletraus"
-    }
-});
-```
+    ```javascript
+    var oAppletRaus = new AppletRaus({
+        aClientOptions: {
+            iDebugLevel: 4,
+            sAppletJnlpUrl: "/appletraus-boot/Applet.jnlp",
+            sAtmosphereEndpoint: "/appletraus-boot/appletraus"
+        }
+    });
+    ```
 3. Include your applet JAR in client project. Set the `MainClass` attribute of the applets main class
 4. Compile with maven. Maven makes automatically JAR signing.
 5. Install **WAR** file in your Java/J2EE server (Tomcat, wildfly, WebSphere, ...)
 6. You are ready to go!
 
 ## Q&A
-### Why the applet is not running in the same cookie context then browser?
+### Why the applet does not run in the same cookie context than browser?
 Because this way the JNLP starting of Java applications work - it is simply not the same context anymore. In this case 
 you have two options. 
 
