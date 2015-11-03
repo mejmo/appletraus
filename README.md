@@ -1,13 +1,23 @@
 # appletraus
-Workaround how to run Java applets even without NPAPI support. One of our customers is still using applets 
-and as of september 2015 Google Chrome is opting out NPAPI support (no Java applet support) and other browsers are following
-this trend, we needed to replace it with very quick solution. 
+Workaround that allows to run Java applets even without NPAPI support. One of our customers is still using applets 
+and as of september 2015 Google Chrome opted out NPAPI support (no Java applet support) and other browsers are following
+this trend, that's why we needed to replace it with very quick solution. 
 
 ## Requirements
 
 - **valid** certificate for signing JNLP applications
 - Java webserver (JRE7+)
 - and of course JRE on client (JRE7+)
+
+## How it works?
+
+* AppletRaus instantiated with JNLP client application which represents the applet container. 
+* Applet still "thinks" that it is running in browser as all JApplet methods are provided. 
+* Communication between the applet container and browser context is made asynchronously between client and server 
+and synchronously between browser context and server
+* async2sync library used to provide synchronous calls - as same as the archaic applet method calling works
+
+![AppletRaus](http://s27.postimg.org/4i4t961dv/Appletraus.png)
 
 ## Usage
 
@@ -29,16 +39,6 @@ var oAppletRaus = new AppletRaus({
 4. Compile with maven. Maven makes automatically JAR signing.
 5. Install **WAR** file in your Java/J2EE server (Tomcat, wildfly, WebSphere, ...)
 6. You are ready to go!
-
-## How it works?
-
-* AppletRaus instantiated with JNLP client application which represents the applet container. 
-* Applet still "thinks" that it is running in browser as all JApplet methods are provided. 
-* Communication between the applet container and browser context is made asynchronously between client and server 
-and synchronously between browser context and server
-* async2sync library used to provide synchronous calls - as same as the archaic applet method calling works
-
-![AppletRaus](http://s27.postimg.org/4i4t961dv/Appletraus.png)
 
 ## Q&A
 ### Why the applet is not running in the same cookie context then browser?
