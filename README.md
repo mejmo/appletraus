@@ -3,7 +3,7 @@ Workaround that allows to run Java applets even without NPAPI support. One of ou
 and as of september 2015 Google Chrome opted out NPAPI support (no Java applet support) and other browsers are following
 this trend, that's why we needed to replace it with very quick solution. 
 
-*This project was implemented very quickly, in case you are interested in help with integration, give a message.* 
+*This project was implemented very quickly, in case you are interested in help with integration, feel free to give a message.* 
 
 Generally the integration consists of these steps:
 
