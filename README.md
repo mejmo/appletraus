@@ -25,8 +25,9 @@ and synchronously between browser context and server
 ## Usage
 
 1. Include `AppletRaus.js` in your HTML page where applet was previously loaded
-2. Instantiate the `AppletRaus` object with
-    ```javascript
+2. Instantiate the `AppletRaus` object with:
+
+    ```
     var oAppletRaus = new AppletRaus({
         aClientOptions: {
             iDebugLevel: 4,
