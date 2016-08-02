@@ -20,7 +20,7 @@ Generally the integration consists of these steps:
 and synchronously between browser context and server
 * async2sync library used to provide synchronous calls - as same as the archaic applet method calling works
 
-![AppletRaus](http://s27.postimg.org/4i4t961dv/Appletraus.png)
+![AppletRaus](https://s31.postimg.org/bpw94hxwr/ewe.png)
 
 ## Usage
 
